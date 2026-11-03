@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5">Student Course Registration</h1>
+    <p class="lead">Register for a course, browse enrolled students and view their details.</p>
+    <a class="btn btn-primary btn-lg me-2" asp-controller="Student" asp-action="Create">Register a Student</a>
+    <a class="btn btn-outline-secondary btn-lg" asp-controller="Student" asp-action="Index">View Student List</a>
+</div>

@@ -1,0 +1,41 @@
+@model List<Student>
+@{
+    ViewData["Title"] = "Students";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Registered Students <span class="badge bg-secondary">@ViewBag.Total</span></h2>
+    <a class="btn btn-primary" asp-action="Create">+ New Registration</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No students registered yet.</div>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.Email</td>
+                <td>@s.Course</td>
+                <td>@s.Semester</td>
+                <td><a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@s.Id">Details</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

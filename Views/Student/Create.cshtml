@@ -1,0 +1,42 @@
+@model Student
+@{
+    ViewData["Title"] = "Register";
+}
+<h2>Student Registration</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Course" class="form-label"></label>
+                <select asp-for="Course" asp-items="(SelectList)ViewBag.Courses" class="form-select">
+                    <option value="">-- Select a course --</option>
+                </select>
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Semester" class="form-label"></label>
+                <input asp-for="Semester" type="number" min="1" max="8" class="form-control" />
+                <span asp-validation-for="Semester" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a class="btn btn-link" asp-action="Index">Back to list</a>
+        </form>
+    </div>
+</div>
